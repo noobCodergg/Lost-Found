@@ -37,8 +37,8 @@ exports.registration = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "muntasirniloy2002@gmail.com",
-        pass: "neih ewru erye hfvg",
+        user: "alisumaya121@gmail.com",
+        pass: "geys tfbw zwko vcdg",
       },
     });
 
@@ -165,13 +165,13 @@ const rateModel = require('../models/rateModel');
 exports.handleRate = async (req, res) => {
   const { userId, rate } = req.body;
 
-  // Validate the rating range (1–10)
+  
   if (rate < 1 || rate > 10) {
     return res.status(400).json({ message: 'Rating must be between 1 and 10' });
   }
 
   try {
-    // Find the user
+    
     const user = await userModel.findById(userId);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
@@ -181,10 +181,10 @@ exports.handleRate = async (req, res) => {
       return res.status(403).json({ message: 'You have already rated' });
     }
 
-    // Get or create the rating document
+    
     let ratingDoc = await rateModel.findOne();
     if (!ratingDoc) {
-      const averageRating = rate; // first user rating
+      const averageRating = rate; 
       ratingDoc = await rateModel.create({
         totalRating: rate,
         totalRaters: 1,
@@ -197,7 +197,7 @@ exports.handleRate = async (req, res) => {
       await ratingDoc.save();
     }
 
-    // Mark the user as rated
+    
     user.rated = true;
     await user.save();
 

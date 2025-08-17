@@ -2,7 +2,7 @@
 
 import Registration from "./Pages/registration";
 import Otp from "./Pages/otp";
-import Login from "./Pages/login"; // fix import: use your custom Login component
+import Login from "./Pages/login"; 
 
 import { Route, Routes } from "react-router-dom";
 import UserProvider from "./Context/UserContext";
@@ -22,6 +22,13 @@ import PostForm from "./Pages/post";
 import ItemList from "./Pages/ItemList";
 import Chat from "./Pages/chat";
 import ChatList from "./Pages/ChatList";
+import Address from "./Pages/Address";
+import ReportList from "./Pages/ReportList";
+import ItemDetails from "./Pages/ItemDetails";
+import Verification from "./Pages/Verification";
+
+
+
 
 
 
@@ -72,6 +79,43 @@ function App() {
           element={
             <ProtectedRoute role={["admin","user"]}>
               <ChatList/>
+            </ProtectedRoute>
+          }
+        />
+
+         <Route
+          path="/location/:id"
+          element={
+            <ProtectedRoute role={["admin","user"]}>
+              <Address/>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/reports"
+          element={
+            <ProtectedRoute role={["admin"]}>
+              <ReportList/>
+            </ProtectedRoute>
+          }
+        />
+
+         <Route
+          path="/details/:id"
+          element={
+            <ProtectedRoute role={["admin"]}>
+              <ItemDetails/>
+            </ProtectedRoute>
+          }
+        />
+
+
+         <Route
+          path="/verification"
+          element={
+            <ProtectedRoute role={["admin","user"]}>
+              <Verification/>
             </ProtectedRoute>
           }
         />

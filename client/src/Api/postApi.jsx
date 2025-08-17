@@ -21,13 +21,11 @@ export const getAllPost = (query = {}) => {
   export const deleteMovie = (id)=>API.delete(`/delete-movie/${id}`)
   export const updateMovie = (id,status) =>API.put(`/update-movie/${id}`,{status})
   export const getMovieById = (id) =>API.get(`/get-movie-by-id/${id}`)
-  /**export const getProductById = (id) => API.get(`/get-product/${id}`);
-  export const deleteProduct = (id) =>API.delete(`/delete-product/${id}`)
-
-  export const updateProductById = (id, data) => API.put(`/update-product/${id}`,data);
-  export const getAllProduct = () =>API.get('/get-all-products')
-  export const updateProductStatus=(id)=>API.put(`/update-product-status/${id}`)
-  export const getProductByStatus = ( search = '') =>
-  API.get('/get-product-by-status', {
-    params: { search },
-  });**/
+ export const getItemsById = (id) =>API.get(`/get-item-by-id/${id}`)
+ export const submitReport = (itemId,userId,message) =>API.post('/submit-report',{itemId,userId,message})
+ export const getReports = () =>API.get('/get-report')
+ export const deleteItem = (itemId) =>API.delete(`/delete-item/${itemId}`)
+ export const postQuestion = (reportId,userId,questions)=>API.post(`/post-question/${reportId}`,{userId,questions})
+ export const getQestion = (userId) =>API.get(`/get-question/${userId}`)
+ export const postAnswer = (reportId,answers) =>API.put(`/post-answer/${reportId}`,{answers})
+ export const getAnswer = (reportId) =>API.get(`/get-answer/${reportId}`)

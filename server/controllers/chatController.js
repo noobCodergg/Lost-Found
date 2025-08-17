@@ -3,7 +3,7 @@ const chatModel = require('../models/chatModel')
 exports.postChat = async (req, res) => {
   try {
     const { senderId, receiverId, text } = req.body;
-    console.log(senderId,receiverId,text)
+    
     if (!senderId || !receiverId || !text) {
       return res.status(400).json({ success: false, message: 'Missing fields' });
     }
@@ -18,7 +18,7 @@ exports.postChat = async (req, res) => {
 
     res.status(201).json({ success: true, message: 'Message sent', data: newMessage });
   } catch (error) {
-    console.error('Error in postChat:', error);
+    
     res.status(500).json({ success: false, message: 'Server Error' });
   }
 };
@@ -34,7 +34,7 @@ exports.getChats = async (req, res) => {
         { senderId, receiverId },
         { senderId: receiverId, receiverId: senderId }
       ],
-    }).sort({ createdAt: 1 }); // ascending by time
+    }).sort({ createdAt: 1 }); 
 
     res.status(200).json({ data: chats });
   } catch (err) {

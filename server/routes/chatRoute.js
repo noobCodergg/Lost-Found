@@ -1,8 +1,6 @@
 const express = require("express");
 const { postChat, getChats, getChatGroup } = require("../controllers/chatController");
 
-
-
 const router = express.Router();
 
 router.post('/post-chat',postChat)

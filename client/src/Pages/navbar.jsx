@@ -55,8 +55,8 @@ const Navbar = () => {
 
           {role === 'admin' && (
             <>
-              <Link to="/upload" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">Upload Movie</Link>
-              <Link to="/admin-movie" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">All Movies</Link>
+              <Link to="/reports" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">Reports</Link>
+              
             </>
           )}
 
@@ -65,6 +65,7 @@ const Navbar = () => {
               <Link to="/post" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">Post Lost/Found Item</Link>
               <Link to="/item-list" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">Items</Link>
               <Link to="/chat" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">All Chats</Link>
+               <Link to="/verification" className="text-white hover:text-blue-600 font-semibold transition-colors duration-300">Reports</Link>
               <button
             onClick={() => setIsRatingOpen(true)}
             className="text-white hover:text-blue-600 font-semibold transition-colors duration-300"
